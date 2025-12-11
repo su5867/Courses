@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auralith Bit - Courses & Contact</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .scan-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+        
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .institute-name {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        
+        .institute-tagline {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .success-message {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .success-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 30px 0 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: #667eea;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .course-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+            position: relative;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .course-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .course-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 10px;
+        }
+        
+        .contact-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .email-link {
+            font-size: 1.3rem;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .email-link:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        .phone-link {
+            display: block;
+            font-size: 1.3rem;
+            color: #10b981;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            padding: 8px 15px;
+            background: rgba(16, 185, 129, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .phone-link:hover {
+            background: rgba(16, 185, 129, 0.2);
+            transform: translateY(-2px);
+        }
+        
+        .phone-numbers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .scan-container {
+                padding: 20px;
+                margin: 10px;
+            }
+            
+            .institute-name {
+                font-size: 2rem;
+            }
+            
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .phone-numbers {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .phone-link {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="scan-container">
+        <!-- Success Message -->
+        <div class="success-message">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div>
+                <h2>QR Code Scanned Successfully! 🎉</h2>
+                <p>Welcome to Auralith Bit IT Training Institute</p>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <h1 class="institute-name">Auralith Bit</h1>
+            <p class="institute-tagline">Design, Develop and Deliver</p>
+            <p style="color: #666; margin-top: 15px; font-size: 1.1rem;">
+                Scan this QR code anytime to access all course information
+            </p>
+        </div>
+
+        <!-- Courses Section -->
+        <h2 class="section-title">
+            <i class="fas fa-book-open"></i>
+            Available Courses
+        </h2>
+        
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="course-number">1</div>
+                <h3 class="course-name">UI/UX Designing</h3>
+                <p>Learn user interface and experience design</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">2</div>
+                <h3 class="course-name">Graphic Designing</h3>
+                <p>Master Adobe Creative Suite and visual design</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">3</div>
+                <h3 class="course-name">Web Designing</h3>
+                <p>HTML5, CSS3, JavaScript and responsive design</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">4</div>
+                <h3 class="course-name">MERN Stack Development</h3>
+                <p>Full-stack development with MongoDB, Express, React, Node</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">5</div>
+                <h3 class="course-name">QA (Software Quality Assurance)</h3>
+                <p>Software testing and quality assurance</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">6</div>
+                <h3 class="course-name">Digital Marketing</h3>
+                <p>SEO, SEM, social media and content marketing</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">7</div>
+                <h3 class="course-name">Python Programming</h3>
+                <p>Python fundamentals and data science</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">8</div>
+                <h3 class="course-name">Office Packages Training</h3>
+                <p>Microsoft Office and productivity tools</p>
+            </div>
+            
+            <div class="course-card">
+                <div class="course-number">9</div>
+                <h3 class="course-name">Related IT Courses</h3>
+                <p>Custom courses according to student demand</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-box">
+            <h2 class="section-title">
+                <i class="fas fa-envelope"></i>
+                Contact Information
+            </h2>
+            <p>For admissions, course details, or any inquiries:</p>
+            
+            <!-- Email -->
+            <a href="mailto:auralithbit0818@gmail.com" class="email-link">
+                <i class="fas fa-envelope"></i> auralithbit0818@gmail.com
+            </a>
+            
+            <!-- Phone Numbers -->
+            <div style="margin: 20px 0;">
+                <h3 style="font-size: 1.2rem; font-weight: 600; color: #1a1a1a; margin-bottom: 15px;">
+                    <i class="fas fa-phone"></i> Call or WhatsApp:
+                </h3>
+                <div class="phone-numbers">
+                    <a href="tel:+9779815478782" class="phone-link">
+                        <i class="fab fa-whatsapp"></i> +977 9815478782
+                    </a>
+                    <a href="tel:+9779867223722" class="phone-link">
+                        <i class="fas fa-phone"></i> +977 9867223722
+                    </a>
+                    <a href="tel:+9779847086072" class="phone-link">
+                        <i class="fas fa-phone"></i> +977 9847086072
+                    </a>
+                </div>
+            </div>
+            
+            <p style="margin-top: 15px; color: #666;">
+                <i class="fas fa-clock"></i> We typically respond within 24 hours
+            </p>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>
+                <i class="fas fa-qrcode"></i>
+                Save this page or share it with friends
+            </p>
+            <p style="margin-top: 10px; font-size: 0.85rem;">
+                &copy; 2024 Auralith Bit IT Training Institute
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add animation to course cards
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.course-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+                
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
